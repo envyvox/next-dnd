@@ -26,7 +26,7 @@ export async function getTasksGroupedByColumn() {
     return acc
   }, new Map<ColumnType, Column>())
 
-  const columnTypes = ["todo", "inprogress", "done"]
+  const columnTypes: ColumnType[] = ["backlog", "todo", "inprogress", "done", "canceled"]
   for (const columnType of columnTypes) {
     if (!columns.get(columnType as ColumnType)) {
       columns.set(columnType as ColumnType, {

@@ -98,7 +98,7 @@ export function Board() {
           <div
             {...provided.droppableProps}
             ref={provided.innerRef}
-            className="grid grid-cols-1 md:grid-cols-3 gap-10"
+            className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-10"
           >
             {Array.from(board.columns.entries()).map(([id, column], index) => (
               <Column key={id} id={id} index={index} tasks={column.tasks} />

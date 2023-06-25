@@ -27,8 +27,7 @@ export function TaskCard({
   return (
     <Card {...draggableProps} {...dragHandleProps} ref={innerRef}>
       <CardHeader>
-        <CardTitle>{task.title}</CardTitle>
-        <CardDescription>{task.description}</CardDescription>
+        <CardDescription className="line-clamp-3">{task.title}</CardDescription>
       </CardHeader>
     </Card>
   )

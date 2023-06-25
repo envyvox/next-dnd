@@ -2,7 +2,7 @@ type Board = {
   columns: Map<ColumnType, Column>
 }
 
-type ColumnType = "todo" | "inprogress" | "done"
+type ColumnType = "backlog" | "todo" | "inprogress" | "done" | "canceled"
 
 type Column = {
   id: ColumnType

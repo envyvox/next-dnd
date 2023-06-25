@@ -12,9 +12,11 @@ type Props = {
 const idToColumnName: {
   [key in ColumnType]: string
 } = {
+  backlog: "Backlog",
   todo: "To Do",
   inprogress: "In Progress",
   done: "Done",
+  canceled: "Canceled",
 }
 
 export function Column({ id, index, tasks }: Props) {
