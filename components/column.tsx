@@ -2,6 +2,7 @@ import { Draggable, Droppable } from "react-beautiful-dnd"
 
 import { TaskCard } from "./task-card"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
+import { ScrollArea } from "./ui/scroll-area"
 
 type Props = {
   id: ColumnType
@@ -35,33 +36,35 @@ export function Column({ id, index, tasks }: Props) {
                 ref={provided.innerRef}
                 className="h-[80vh]"
               >
-                <CardHeader>
-                  <CardTitle className="flex justify-between">
-                    {idToColumnName[id]}
-                    <span>{tasks.length}</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="grid gap-5">
-                  {tasks.map((task, index) => (
-                    <Draggable
-                      key={task.$id}
-                      draggableId={task.$id}
-                      index={index}
-                    >
-                      {(provided) => (
-                        <TaskCard
-                          id={id}
-                          index={index}
-                          task={task}
-                          innerRef={provided.innerRef}
-                          draggableProps={provided.draggableProps}
-                          dragHandleProps={provided.dragHandleProps}
-                        />
-                      )}
-                    </Draggable>
-                  ))}
-                  {provided.placeholder}
-                </CardContent>
+                <ScrollArea className="h-[80vh]">
+                  <CardHeader>
+                    <CardTitle className="flex justify-between">
+                      {idToColumnName[id]}
+                      <span>{tasks.length}</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="grid gap-5">
+                    {tasks.map((task, index) => (
+                      <Draggable
+                        key={task.$id}
+                        draggableId={task.$id}
+                        index={index}
+                      >
+                        {(provided) => (
+                          <TaskCard
+                            id={id}
+                            index={index}
+                            task={task}
+                            innerRef={provided.innerRef}
+                            draggableProps={provided.draggableProps}
+                            dragHandleProps={provided.dragHandleProps}
+                          />
+                        )}
+                      </Draggable>
+                    ))}
+                    {provided.placeholder}
+                  </CardContent>
+                </ScrollArea>
               </Card>
             )}
           </Droppable>
