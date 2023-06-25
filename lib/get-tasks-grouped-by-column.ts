@@ -29,15 +29,21 @@ export async function getTasksGroupedByColumn() {
   const columnTypes = ["todo", "inprogress", "done"]
   for (const columnType of columnTypes) {
     if (!columns.get(columnType as ColumnType)) {
-      columns.set(columnType  as ColumnType, {
+      columns.set(columnType as ColumnType, {
         id: columnType as ColumnType,
         tasks: [],
       })
     }
   }
 
+  const sortedColums = new Map(
+    Array.from(columns.entries()).sort(
+      (a, b) => columnTypes.indexOf(a[0]) - columnTypes.indexOf(b[0])
+    )
+  )
+
   const board: Board = {
-    columns: columns,
+    columns: sortedColums,
   }
 
   return board
