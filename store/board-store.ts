@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-import { databases } from "@/lib/appwrite";
+import { ID, databases } from "@/lib/appwrite";
 import { getTasksGroupedByColumn } from "@/lib/get-tasks-grouped-by-column";
 
 export type BoardState = {
@@ -8,6 +8,7 @@ export type BoardState = {
   getBoard: () => void;
   setBoardState: (board: Board) => void;
   updatetaskInDb: (task: Task, columnId: ColumnType) => void;
+  createTaskInDb: (title: string, description: string) => void;
 };
 
 export const useBoardStore = create<BoardState>((set) => ({
@@ -29,5 +30,20 @@ export const useBoardStore = create<BoardState>((set) => ({
         status: columnId,
       }
     );
+  },
+  createTaskInDb: async (title, description) => {
+    await databases.createDocument(
+      process.env.NEXT_PUBLIC_DATABASE_ID!,
+      process.env.NEXT_PUBLIC_TASKS_COLLECTION_ID!,
+      ID.unique(),
+      {
+        title: title,
+        description: description,
+        status: "backlog",
+      }
+    );
+
+    const board = await getTasksGroupedByColumn();
+    set({ board });
   },
 }));

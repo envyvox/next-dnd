@@ -34,9 +34,9 @@ export function Column({ id, index, tasks }: Props) {
               <Card
                 {...provided.droppableProps}
                 ref={provided.innerRef}
-                className="h-[80vh]"
+                className="h-[75vh] overflow-hidden"
               >
-                <ScrollArea className="h-[80vh]">
+                <ScrollArea className="h-[75vh]">
                   <CardHeader>
                     <CardTitle className="flex justify-between">
                       {idToColumnName[id]}
