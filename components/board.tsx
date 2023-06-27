@@ -21,8 +21,6 @@ export function Board() {
 
     if (!destination) return;
 
-    console.log(type);
-
     if (type === "column") {
       const entries = Array.from(board.columns.entries());
       const [removed] = entries.splice(source.index, 1);
