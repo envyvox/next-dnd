@@ -18,6 +18,7 @@ import {
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -97,6 +98,9 @@ export function CreateTaskButton() {
                       {...field}
                     />
                   </FormControl>
+                  <FormDescription>
+                    Description will be visible when you hover over the task.
+                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
