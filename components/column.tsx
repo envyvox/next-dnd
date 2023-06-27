@@ -1,24 +1,24 @@
-import { Draggable, Droppable } from "react-beautiful-dnd"
+import { Draggable, Droppable } from "react-beautiful-dnd";
 
-import { TaskCard } from "./task-card"
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
-import { ScrollArea } from "./ui/scroll-area"
+import { TaskCard } from "./task-card";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { ScrollArea } from "./ui/scroll-area";
 
 type Props = {
-  id: ColumnType
-  index: number
-  tasks: Task[]
-}
+  id: ColumnType;
+  index: number;
+  tasks: Task[];
+};
 
 const idToColumnName: {
-  [key in ColumnType]: string
+  [key in ColumnType]: string;
 } = {
   backlog: "Backlog",
   todo: "To Do",
   inprogress: "In Progress",
   done: "Done",
   canceled: "Canceled",
-}
+};
 
 export function Column({ id, index, tasks }: Props) {
   return (
@@ -71,5 +71,5 @@ export function Column({ id, index, tasks }: Props) {
         </div>
       )}
     </Draggable>
-  )
+  );
 }

@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
 import {
   DraggableProvidedDragHandleProps,
   DraggableProvidedDraggableProps,
-} from "react-beautiful-dnd"
+} from "react-beautiful-dnd";
 
-import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card"
+import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
 
 type Props = {
-  id: ColumnType
-  index: number
-  task: Task
-  innerRef: (element: HTMLElement | null) => void
-  draggableProps: DraggableProvidedDraggableProps
-  dragHandleProps: DraggableProvidedDragHandleProps | null | undefined
-}
+  id: ColumnType;
+  index: number;
+  task: Task;
+  innerRef: (element: HTMLElement | null) => void;
+  draggableProps: DraggableProvidedDraggableProps;
+  dragHandleProps: DraggableProvidedDragHandleProps | null | undefined;
+};
 
 export function TaskCard({
   id,
@@ -30,5 +30,5 @@ export function TaskCard({
         <CardDescription className="line-clamp-3">{task.title}</CardDescription>
       </CardHeader>
     </Card>
-  )
+  );
 }

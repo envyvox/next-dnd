@@ -1,10 +1,10 @@
-import Link from "next/link"
-import { Github, Twitter } from "lucide-react"
+import Link from "next/link";
+import { Github, Twitter } from "lucide-react";
 
-import { siteConfig } from "@/config/site"
+import { siteConfig } from "@/config/site";
 
-import { ThemeToggle } from "./theme-toggle"
-import { buttonVariants } from "./ui/button"
+import { ThemeToggle } from "./theme-toggle";
+import { buttonVariants } from "./ui/button";
 
 export function SiteHeader() {
   return (
@@ -34,5 +34,5 @@ export function SiteHeader() {
         </div>
       </div>
     </header>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-export type SiteConfig = typeof siteConfig
+export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Next Drag & Drop",
@@ -8,4 +8,4 @@ export const siteConfig = {
     twitter: "https://twitter.com/envyvox",
     github: "https://github.com/envyvox/next-dnd",
   },
-}
+};

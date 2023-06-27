@@ -1,22 +1,22 @@
-import { create } from "zustand"
+import { create } from "zustand";
 
-import { databases } from "@/lib/appwrite"
-import { getTasksGroupedByColumn } from "@/lib/get-tasks-grouped-by-column"
+import { databases } from "@/lib/appwrite";
+import { getTasksGroupedByColumn } from "@/lib/get-tasks-grouped-by-column";
 
 export type BoardState = {
-  board: Board
-  getBoard: () => void
-  setBoardState: (board: Board) => void
-  updatetaskInDb: (task: Task, columnId: ColumnType) => void
-}
+  board: Board;
+  getBoard: () => void;
+  setBoardState: (board: Board) => void;
+  updatetaskInDb: (task: Task, columnId: ColumnType) => void;
+};
 
 export const useBoardStore = create<BoardState>((set) => ({
   board: {
     columns: new Map<ColumnType, Column>(),
   },
   getBoard: async () => {
-    const board = await getTasksGroupedByColumn()
-    set({ board })
+    const board = await getTasksGroupedByColumn();
+    set({ board });
   },
   setBoardState: (board) => set({ board }),
   updatetaskInDb: async (task, columnId) => {
@@ -28,6 +28,6 @@ export const useBoardStore = create<BoardState>((set) => ({
         title: task.title,
         status: columnId,
       }
-    )
+    );
   },
-}))
+}));
